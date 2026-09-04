@@ -79,10 +79,10 @@ Player::Player(GameObject* parent)
 void Player::Initialize()
 {
 	hWalkModel_ = Model::Load("oji_Run.fbx");
-	Model::SetAnimFrame(hWalkModel_, 0, 59, 1.0);
+	Model::SetAnimFrame(hWalkModel_, 0, 50, 1.0);
 	transform_.position_ = START_POS;
 	hIdleModel_ = Model::Load("oji_Idle.fbx");
-	Model::SetAnimFrame(hIdleModel_, 0, 117, 1.0);
+	Model::SetAnimFrame(hIdleModel_, 0, 240, 1.0);
 	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0.25, 0), 0.5f);
 	AddCollider(collision);
 
