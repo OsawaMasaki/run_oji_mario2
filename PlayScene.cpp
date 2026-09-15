@@ -4,6 +4,9 @@
 #include "Ground.h"
 #include "Engine/Camera.h"
 #include "Engine/Text.h"
+#include"Engine/Input.h"
+#include"Engine/SceneManager.h"
+
 
 namespace {
 	Ground* pGround;
@@ -40,6 +43,15 @@ void PlayScene::Update()
 		Camera::SetPosition({ pPlayer_->GetPosition().x, START_POS.y + CAMERA_HEIGHT,-22 });
 		Camera::SetTarget({ pPlayer_->GetPosition().x, START_POS.y + CAMERA_HEIGHT,0 });
 	}
+	if (Input::IsKeyDown(DIK_C))
+	{
+		//シーンマネージャーを探して、シーン切り替えの関数を呼ぶ
+		// 見つからない場合はnullptrが返るので、nullptrでないことを確認してから呼ぶ
+
+		SceneManager* pSceneManager = (SceneManager*)(this->GetParent());
+		pSceneManager->ChangeScene(SCENE_ID_CLEAR);
+		//pSceneManager->ChangeScene(SCENE_ID_CLEAR);
+	}
 
 }
 
@@ -63,5 +75,5 @@ void PlayScene::Draw()
 //開放
 void PlayScene::Release()
 {
-	pText_->Release();//テキストの開放
+	//pText_->Release();//テキストの開放
 }
