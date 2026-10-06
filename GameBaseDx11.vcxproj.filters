@@ -102,6 +102,7 @@
     <ClCompile Include="feed.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="ClearScene.cpp" />
+    <ClCompile Include="Box.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -183,6 +184,7 @@
     <ClInclude Include="feed.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="ClearScene.h" />
+    <ClInclude Include="Box.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">

@@ -2,26 +2,29 @@
 #include "Engine/GameObject.h"
 #include <vector>
 
-class Ground :
-	public GameObject
+class Box; // 前方宣言
+
+class Ground : public GameObject
 {
 public:
-	//コンストラクタ
-	//引数：parent  親オブジェクト（SceneManager）
 	Ground(GameObject* parent);
-	//初期化
+	~Ground() override = default;
+
 	void Initialize() override;
-	std::vector<std::vector<int>> GetMapData() { return mapData_; }
-	//更新
 	void Update() override;
-	//描画
 	void Draw() override;
-	//開放
 	void Release() override;
+
+	std::vector<std::vector<int>> GetMapData() { return mapData_; }
+
+	// 生成された全Boxのリストを取得する関数
+	const std::vector<Box*>& GetBoxes() const { return pBoxes_; }
+
 private:
 	int hModel_;
-	int hModelt_;
 	std::vector<std::vector<int>> mapData_;
 	int mapWidth_;
 	int mapHeight_;
+
+	std::vector<Box*> pBoxes_; // 生成したBoxのポインタ配列
 };

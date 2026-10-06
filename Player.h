@@ -1,6 +1,8 @@
 #pragma once
 #include "Engine/GameObject.h"
 #include "Engine/SphereCollider.h"
+#include "Box.h"
+#include "ground.h"
 
 class Ground;//‘O•ûéŒ¾
 
