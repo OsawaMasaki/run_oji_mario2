@@ -12,6 +12,7 @@ namespace
 	const float GROUND_ROTATE_X = -90.0f;
 	const float BLOCK_INTERVAL_X = 2.0f;
 	const float BLOCK_INTERVAL_Y = 1.0f;
+	const float BACK_SIZE = 2.222f;
 }
 
 Ground::Ground(GameObject* parent)
@@ -34,7 +35,7 @@ Ground::Ground(GameObject* parent)
 
 void Ground::Initialize()
 {
-	hModel_ = Model::Load("uv_mario.fbx");
+	hModel_ = Model::Load("haikei.fbx");
 	hModelt_ = Model::Load("Box.fbx");
 	//hEsaModel_ = Model::Load("esa.fbx");
 	//hPEsaModel_ = Model::Load("Poweresa.fbx");
@@ -48,7 +49,8 @@ void Ground::Draw()
 {
 	for (int i = 0;i < 3; i++) {
 		transform_.position_ = { GROUND_WIDTH / 2.0f + GROUND_WIDTH * i, GROUND_Y, GROUND_Z };
-		transform_.rotate_ = { GROUND_ROTATE_X, 0.0f, 0.0f };
+		//transform_.rotate_ = { GROUND_ROTATE_X, 0.0f, 0.0f };
+		transform_.scale_ = { BACK_SIZE,BACK_SIZE, BACK_SIZE };
 		Model::SetTransform(hModel_, transform_);
 		Model::Draw(hModel_);
 	}
